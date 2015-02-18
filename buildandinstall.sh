@@ -93,7 +93,7 @@ patch < ./patch3.patch
 cd
 git clone --no-checkout https://git.fedorahosted.org/git/lvm2.git
 cd lvm2
-git checkout -q v2_02_103
+#git checkout -q v2_02_103
 
 mkdir -p autoconf
 wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O autoconf/config.guess
@@ -107,5 +107,5 @@ echo "With a little help from the computer gods, this is the last step."
 sleep 2
 cd docker
 ./hack/make.sh binary
-sudo cp /home/admin/docker/bundles/1.3.1/binary/docker-1.3.1 /usr/bin/docker
-echo "Done?!?! Test it out!"
+#sudo cp /home/admin/docker/bundles/1.3.1/binary/docker-1.3.1 /usr/bin/docker
+echo "Done?!?! Test it out! /home/admin/docker/bundles/"
