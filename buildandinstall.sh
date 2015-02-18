@@ -28,7 +28,7 @@ mkdir build-gcc
 cd build-gcc
 sudo apt-get install -y libgmp-dev libmpfr-dev libmpc-dev flex bison
 ../gcc/configure --enable-languages=go --disable-multilib --prefix=/opt/gcc-trunk
-make -j200 # if using the big instance
+make -j8 # j200 if using the big instance
 sudo make install
 
 export PATH=/opt/gcc-trunk/bin:$PATH
