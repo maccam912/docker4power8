@@ -63,22 +63,7 @@ echo "It might break here."
 sleep 2
 patch < patch1.patch
     
-diff --git a/vendor/src/github.com/kr/pty/pty_linux.go b/vendor/src/github.com/kr/pty/pty_linux.go
-index 6e5a042..8525f80 100644
---- a/vendor/src/github.com/kr/pty/pty_linux.go
-+++ b/vendor/src/github.com/kr/pty/pty_linux.go
-@@ -7,6 +7,11 @@ import (
-    "unsafe"
- )
-  
-+type (
-+        _C_int  int32
-+        _C_uint uint32
-+)
-+
- var (
-    ioctl_TIOCGPTN   = _IOR('T', 0x30, unsafe.Sizeof(_C_uint(0))) /* Get Pty Number (of pty-mux device) */
-    ioctl_TIOCSPTLCK = _IOW('T', 0x31, unsafe.Sizeof(_C_int(0)))  /* Lock/unlock Pty */
+patch < patch2.patch
 
 diff --git a/hack/make/binary b/hack/make/binary
 index b97069a..f5398ae 100755
