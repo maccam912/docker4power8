@@ -8,7 +8,7 @@ index b97069a..f5398ae 100755
     "${BUILDFLAGS[@]}" \
 -   -ldflags "
 -       $LDFLAGS
--       $LDFLAGS_STATIC_DOCKER"
+-       $LDFLAGS_STATIC_DOCKER
 +   -gccgoflags "
 +       -static-libgo -static-libgcc
     " \
