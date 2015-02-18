@@ -61,6 +61,7 @@ export GOPATH=/go:/go/src/github.com/docker/docker/vendor
 
 echo "It might break here."
 sleep 2
+patch < patch1.patch
     
 diff --git a/vendor/src/github.com/kr/pty/pty_linux.go b/vendor/src/github.com/kr/pty/pty_linux.go
 index 6e5a042..8525f80 100644
