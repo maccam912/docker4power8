@@ -61,26 +61,11 @@ export GOPATH=/go:/go/src/github.com/docker/docker/vendor
 
 echo "It might break here."
 sleep 2
-patch < patch1.patch
+patch < ./patch1.patch
     
-patch < patch2.patch
+patch < ./patch2.patch
 
-diff --git a/hack/make/binary b/hack/make/binary
-index b97069a..f5398ae 100755
---- a/hack/make/binary
-+++ b/hack/make/binary
-@@ -6,9 +6,8 @@ DEST=$1
- go build \
-    -o "$DEST/docker-$VERSION" \
-    "${BUILDFLAGS[@]}" \
--   -ldflags "
--       $LDFLAGS
--       $LDFLAGS_STATIC_DOCKER
-+   -gccgoflags "
-+       -static-libgo -static-libgcc
-    " \
-    ./docker
- echo "Created binary: $DEST/docker-$VERSION"
+patch < ./patch3.patch
  
  echo "Install dependencies"
  sleep 2
