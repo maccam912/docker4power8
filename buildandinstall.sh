@@ -61,24 +61,6 @@ export GOPATH=/go:/go/src/github.com/docker/docker/vendor
 
 echo "It might break here."
 sleep 2
-
-diff --git a/daemon/daemon.go b/daemon/daemon.go
-index 235788c..b75a94e 100644
---- a/daemon/daemon.go
-+++ b/daemon/daemon.go
-@@ -1104,9 +1104,9 @@ func (daemon *Daemon) ImageGetCached(imgID string, config *runconfig.Config) (*i
-  
- func checkKernelAndArch() error {
-    // Check for unsupported architectures
--   if runtime.GOARCH != "amd64" {
--       return fmt.Errorf("The Docker runtime currently only supports amd64 (not %s). This will change in the future. Aborting.", runtime.GOARCH)
--   }
-+   //if runtime.GOARCH != "amd64" {
-+   //  return fmt.Errorf("The Docker runtime currently only supports amd64 (not %s). This will change in the future. Aborting.", runtime.GOARCH)
-+   //}
-    // Check for unsupported kernel versions
-    // FIXME: it would be cleaner to not test for specific versions, but rather
-    // test for specific functionalities.
     
 diff --git a/vendor/src/github.com/kr/pty/pty_linux.go b/vendor/src/github.com/kr/pty/pty_linux.go
 index 6e5a042..8525f80 100644
