@@ -52,7 +52,7 @@ echo "Get docker source"
 sleep 2
 git clone https://github.com/docker/docker.git
 cd docker
-git checkout v1.3.1
+#git checkout v1.3.1
 
 sudo mkdir -p /go/src/github.com/docker/
 sudo ln -s $HOME/docker /go/src/github.com/docker/docker
