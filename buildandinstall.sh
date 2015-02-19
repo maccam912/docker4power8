@@ -28,7 +28,7 @@ mkdir build-gcc
 cd build-gcc
 sudo apt-get install -y libgmp-dev libmpfr-dev libmpc-dev flex bison
 ../gcc/configure --enable-languages=go --disable-multilib --prefix=/opt/gcc-trunk
-make -j8 # j200 if using the big instance
+make -j64 # j200 if using the big instance
 sudo make install
 
 export PATH=/opt/gcc-trunk/bin:$PATH
@@ -52,7 +52,7 @@ echo "Get docker source"
 sleep 2
 git clone https://github.com/docker/docker.git
 cd docker
-#git checkout v1.3.1
+git checkout v1.3.1
 
 sudo mkdir -p /go/src/github.com/docker/
 sudo ln -s $HOME/docker /go/src/github.com/docker/docker
@@ -61,11 +61,11 @@ export GOPATH=/go:/go/src/github.com/docker/docker/vendor
 
 echo "It might break here."
 sleep 2
-patch < ./patch1.patch
+patch -p0 -i ./patch1.patch
     
-patch < ./patch2.patch
+patch -p0 -i ./patch2.patch
 
-patch < ./patch3.patch
+patch -p0 -i ./patch3.patch
  
  echo "Install dependencies"
  sleep 2
@@ -93,7 +93,7 @@ patch < ./patch3.patch
 cd
 git clone --no-checkout https://git.fedorahosted.org/git/lvm2.git
 cd lvm2
-#git checkout -q v2_02_103
+git checkout -q v2_02_103
 
 mkdir -p autoconf
 wget 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD' -O autoconf/config.guess
@@ -107,5 +107,5 @@ echo "With a little help from the computer gods, this is the last step."
 sleep 2
 cd docker
 ./hack/make.sh binary
-#sudo cp /home/admin/docker/bundles/1.3.1/binary/docker-1.3.1 /usr/bin/docker
+sudo cp /home/admin/docker/bundles/1.3.1/binary/docker-1.3.1 /usr/bin/docker
 echo "Done?!?! Test it out! /home/admin/docker/bundles/"
