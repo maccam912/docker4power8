@@ -22,6 +22,10 @@ cd go
 hg update dev.power64
 
 cd
+cp go/src/debug/elf/file.go gcc/libgo/go/debug/elf/
+cp go/src/debug/elf/elf.go gcc/libgo/go/debug/elf/
+
+cd
 echo "Building GCC. This can take VERY long. Like 2 hours long."
 sleep 5
 mkdir build-gcc
